@@ -1,14 +1,18 @@
 import React from 'react';
 
 // STYLES
-import { ElementWrapper, ElementSectionWrapper, GeneralText, CenterTitle } from '../styled/periodic-table';
+import {
+  ElementWrapper, ElementSectionWrapper, GeneralText, CenterTitle,
+} from '../styled/periodic-table';
 
 // TYPES
 import { PeriodicElement } from '../types/index';
 
 const Element = (element: PeriodicElement): JSX.Element | null => {
   if (!element) return null;
-  const { atomicMass, atomicNumber, commonName, symbol } = element;
+  const {
+    atomicMass, atomicNumber, commonName, symbol,
+  } = element;
 
   return <>
     <ElementWrapper>
@@ -34,5 +38,5 @@ const Element = (element: PeriodicElement): JSX.Element | null => {
       </ElementSectionWrapper>
     </ElementWrapper>
   </>;
-}
+};
 export default Element;

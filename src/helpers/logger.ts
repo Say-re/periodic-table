@@ -1,4 +1,4 @@
-export const logger = (event: any): any => {
+export const logger = (event: any) => {
   if (!event) return null;
   const type = event.type ? event.type : 'Info';
   const notice = 'Periodic_Table_Logger';
@@ -7,6 +7,7 @@ export const logger = (event: any): any => {
     notice,
     ...event,
   });
-}
+  return null;
+};
 
 export default logger;

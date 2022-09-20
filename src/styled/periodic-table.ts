@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // Helpers
-import { remConversion } from './helpers/';
+import { remConversion } from './helpers';
 
 export const ElementWrapper = styled('div')`
   display: flex;

@@ -1,5 +1,6 @@
 import logger from '../../helpers/logger';
-export const remConversion = (values: number | Array<number>, baseFontSize: number = 16): string => {
+
+export const remConversion = (values: number | Array<number>, baseFontSize = 16): string => {
   if (!values || !baseFontSize) {
     logger({
       type: 'error',
