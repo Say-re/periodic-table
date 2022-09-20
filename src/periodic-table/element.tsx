@@ -16,7 +16,9 @@ const Element = (element: PeriodicElement): JSX.Element | null => {
 
   return <>
     <ElementWrapper>
-      <ElementSectionWrapper>
+      <ElementSectionWrapper
+        justifyContent='left'
+        >
         <GeneralText>
           {atomicNumber}
         </GeneralText>

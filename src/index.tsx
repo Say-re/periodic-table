@@ -1,12 +1,12 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import App from './app';
 
 // HELPERS
 import { logger } from './helpers/logger';
 
 const RenderApp = () => {
-  const root = createRoot(
+  const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
   );
   if (!root) {
@@ -21,9 +21,9 @@ const RenderApp = () => {
       <App />
     </React.StrictMode>
   );
-
-  if (document.readyState === 'complete' || document.readyState !== 'loading') RenderApp();
-  else document.addEventListener('DOMContentLoaded', RenderApp);
 };
+
+if (document.readyState === 'complete' || document.readyState !== 'loading') RenderApp();
+else document.addEventListener('DOMContentLoaded', RenderApp);
 
 export default RenderApp;
