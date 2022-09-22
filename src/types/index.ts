@@ -6,18 +6,18 @@ interface PhysicalProperties {
 export interface PeriodicElement {
   atomicMass: number,
   atomicNumber: string,
-  boilingPoint?: PhysicalProperties,
-  category?: string,
+  // boilingPoint?: PhysicalProperties,
+  // category?: string,
   commonName: string,
-  density?: PhysicalProperties,
-  discovery?: string,
-  electronConfiguration?: Array<{
-    [index: string]: string,
-  }>,
-  generalState?: string,
-  group?: string,
-  meltingPoint?: PhysicalProperties,
-  period?: string,
+  // density?: PhysicalProperties,
+  // discovery?: string,
+  // electronConfiguration?: Array<{
+    // [index: string]: string,
+  // }>,
+  // generalState?: string,
+  // group?: string,
+  // meltingPoint?: PhysicalProperties,
+  // period?: string,
   symbol: string,
 }
 

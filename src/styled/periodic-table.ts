@@ -1,13 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // Helpers
 import { remConversion } from './helpers';
 
-interface ElementSectionWrapperProps {
-  justifyContent?: string,
+type ElementSectionWrapperProps = {
+  styleProps?: {[index: string]: string},
 }
 
+const FontFamily = css`
+  font-family: 'Roboto', sans-serif;
+  color: #294350;
+`;
+
 export const CenterTitle = styled('h2')`
+  ${FontFamily};
   font-size: ${remConversion(24)};
   font-weight: 700;
   margin: 0;
@@ -25,11 +31,12 @@ export const ElementWrapper = styled('div')`
 export const ElementSectionWrapper = styled('div')<ElementSectionWrapperProps>`
   display: flex;
   flex-direction: row;
-  justify-content: ${(props) => (props.justifyContent ? props.justifyContent : 'center')};
+  justify-content: ${(props) => (props.styleProps && props.styleProps.justifyContent ? props.styleProps.justifyContent : 'center')};
   align-items: center;
 `;
 
 export const GeneralText = styled('p')`
+  ${FontFamily};
   font-size: ${remConversion(8)};
   margin: 0;
 `;

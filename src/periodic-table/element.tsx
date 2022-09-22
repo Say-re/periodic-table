@@ -8,16 +8,16 @@ import {
 // TYPES
 import { PeriodicElement } from '../types/index';
 
-const Element = (element: PeriodicElement): JSX.Element | null => {
-  if (!element) return null;
+const Element = (attributes: PeriodicElement): JSX.Element | null => {
+  if (!attributes) return null;
   const {
     atomicMass, atomicNumber, commonName, symbol,
-  } = element;
+  } = attributes;
 
   return <>
     <ElementWrapper>
       <ElementSectionWrapper
-        justifyContent='left'
+        styleProps={{ justifyContent: 'left' }}
         >
         <GeneralText>
           {atomicNumber}
