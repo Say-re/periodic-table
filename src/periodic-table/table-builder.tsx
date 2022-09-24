@@ -9,30 +9,24 @@ import {
 import { PeriodicElement } from '../types/index';
 
 /* ****CONSTANTS**** */
-const ELEMENTS: Array<PeriodicElement> = [
-  {
-    atomicMass: 1.0008,
-    atomicNumber: '1',
-    commonName: 'Hydrogen',
-    symbol: 'H',
-  },
-];
+import ELEMENTS from '../constants/periodic-table';
 
-type FieldsProps = {
+export type FieldsProps = {
   id: string,
-  singleField: Array<{styleProps: {[index: string]: string}, fieldType: string, key: string}>,
+  cellFields: Array<{styleProps?: {[index: string]: string}, fieldType?: string, key: string}>,
   index: number,
 }
 
-const getField = (element: PeriodicElement, fieldType: string, key: string) => {
+const getField = (element: PeriodicElement, key: string, fieldType?: string) => {
   if (!element || !key) return null;
+  let value = element[key as keyof PeriodicElement];
+  if (typeof value === 'number') value = value.toFixed(3);
+
   switch (fieldType) {
-    case 'general':
-      return <GeneralText>{element[key as keyof PeriodicElement]}</GeneralText>;
     case 'title':
-      return <CenterTitle>{element[key as keyof PeriodicElement]}</CenterTitle>;
+      return <CenterTitle>{(typeof value === 'string' || typeof value === 'number') ? value : ''}</CenterTitle>;
     default:
-      return <GeneralText>{element[key as keyof PeriodicElement]}</GeneralText>;
+      return <GeneralText>{(typeof value === 'string' || typeof value === 'number') ? value : ''}</GeneralText>;
   }
 };
 
@@ -40,13 +34,14 @@ const TableBuilder = (fields: Array<FieldsProps | Array<FieldsProps>>) => fields
   if (Array.isArray(field)) {
     return <GroupColumnWrapper key={`Group-${indx}`}>{TableBuilder(field)}</GroupColumnWrapper>;
   }
+
   const element = ELEMENTS[field.index];
 
   return (
       <ElementWrapper key={`${field.id}-${indx}`}>
-        {field.singleField.map((fld, index) => (
+        {field.cellFields.map((fld, index) => (
           <ElementSectionWrapper key={`${fld.key}-${indx}-${index}`} styleProps={fld.styleProps}>
-            {getField(element, fld.fieldType, fld.key)}
+            {getField(element, fld.key, fld.fieldType || '')}
           </ElementSectionWrapper>
         ))}
       </ElementWrapper>

@@ -1,56 +1,19 @@
 import React from 'react';
 
-import Element from './periodic-table/element';
+// Constants
+import periodicTableFields from './constants/periodic-table-builder';
+
+// Helpers
+import TableBuilder from './periodic-table/table-builder';
 
 // Styles
-import { GroupColumnWrapper, TableWrapper } from './styled/periodic-table';
+import { TableWrapper } from './styled/periodic-table';
 
-const App = (): JSX.Element => {
-  const element = {
-    atomicMass: 1.0008,
-    atomicNumber: '1',
-    commonName: 'Hydrogen',
-    symbol: 'H',
-  };
-  return (<>
+const App = (): JSX.Element => (<>
     <TableWrapper>
-    <GroupColumnWrapper>
-    <Element
-      atomicMass={element.atomicMass}
-      atomicNumber={element.atomicNumber}
-      commonName={element.commonName}
-      symbol={element.symbol}
-    />
-    <Element
-      atomicMass={element.atomicMass}
-      atomicNumber={element.atomicNumber}
-      commonName={element.commonName}
-      symbol={element.symbol}
-    />
-    <Element
-      atomicMass={element.atomicMass}
-      atomicNumber={element.atomicNumber}
-      commonName={element.commonName}
-      symbol={element.symbol}
-    />
-    </GroupColumnWrapper>
-    <GroupColumnWrapper>
-    <Element
-      atomicMass={element.atomicMass}
-      atomicNumber={element.atomicNumber}
-      commonName={element.commonName}
-      symbol={element.symbol}
-    />
-    <Element
-      atomicMass={element.atomicMass}
-      atomicNumber={element.atomicNumber}
-      commonName={element.commonName}
-      symbol={element.symbol}
-    />
-    </GroupColumnWrapper>
+      {TableBuilder(periodicTableFields.fields)}
     </TableWrapper>
     </>
-  );
-};
+);
 
 export default App;

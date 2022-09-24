@@ -25,7 +25,6 @@ export const ElementWrapper = styled('div')`
   padding: ${remConversion(4)};
   border: 1px solid #476574;
   border-radius: ${remConversion(2)};
-  width: max-content;
 `;
 
 export const ElementSectionWrapper = styled('div')<ElementSectionWrapperProps>`
